@@ -1,58 +1,63 @@
-
 # GitHub Auto Backup
 
-Ce projet permet de **backuper tous tes repositories GitHub** dans un répertoire local, en utilisant **SSH** pour cloner les dépôts.
+Un script Python pour sauvegarder automatiquement tous vos dépôts GitHub en local via SSH.
+
+## Fonctionnalités
+
+- Clone automatiquement tous vos dépôts GitHub
+- Utilise SSH pour une connexion sécurisée
+- Organise les sauvegardes par date
+- Configuration simple via fichier YAML
 
 ## Prérequis
 
-- **Python 3.x**
-- **Git** installé
-- Un **token GitHub** pour l'authentification
+- Python 3.x
+- Git installé
+- Un token d'accès GitHub
 
 ## Installation
 
-1. **Clone ce repository** sur ta machine :
+1. Clonez ce dépôt :
+```bash
+git clone https://github.com/ton_utilisateur/auto-backup.git
+cd auto-backup
+```
 
-   ```bash
-   git clone https://github.com/ton_utilisateur/auto-backup.git
-   cd auto-backup
-Installe les dépendances Python :
-
-Si tu n'as pas déjà installé les dépendances, exécute la commande suivante :
-
-bash
-Copier le code
+2. Installez les dépendances :
+```bash
 pip install -r requirements.txt
-Configure tes credentials GitHub :
+```
 
-Renomme le fichier config.example.yaml en config.yaml.
+3. Configurez vos identifiants GitHub :
+   - Renommez `config.example.yaml` en `config.yaml`
+   - Modifiez le fichier avec vos informations :
+```yaml
+github_token: "ghp_xxxxxxxx"  # Votre token GitHub
+github_user: "votre_username"  # Votre nom d'utilisateur GitHub
+backup_dir: "backups"         # Dossier de sauvegarde
+```
 
-Ouvre config.yaml et remplis avec tes informations :
+## Utilisation
 
-github_token: Ton token GitHub (génère-le depuis GitHub).
-
-github_user: Ton nom d'utilisateur GitHub.
-
-Exemple de configuration :
-
-yaml
-Copier le code
-github_token: "ghp_xxxxxxxx"  # Ton token GitHub
-github_user: "ton_github_username"
-backup_dir: "backups"
-Utilisation
-Une fois que ta configuration est prête, il te suffit de lancer le script Python pour cloner tous tes dépôts :
-
-bash
-Copier le code
+Exécutez simplement :
+```bash
 python backup.py
-Les dépôts seront clonés dans un dossier backups avec la date du jour. Par exemple, les dépôts clonés aujourd'hui seront dans un dossier backups/2025-04-20.
+```
 
-Structure des fichiers
-backup.py: Le script Python qui gère le clonage des repos.
+Les dépôts seront clonés dans un dossier `backups/YYYY-MM-DD` (par exemple : `backups/2025-04-20`).
 
-config.yaml: Le fichier de configuration contenant ton token et ton nom d'utilisateur GitHub.
+## Structure du projet
 
-backups/: Le répertoire où tes dépôts seront sauvegardés.
+```
+.
+├── backup.py           # Script principal
+├── config.yaml         # Configuration (à créer)
+├── config.example.yaml # Exemple de configuration
+└── backups/           # Dossier des sauvegardes
+```
 
-config.example.yaml: Exemple de configuration à adapter.
+## Sécurité
+
+- Ne partagez jamais votre token GitHub
+- Gardez votre fichier `config.yaml` sécurisé
+- Utilisez des permissions appropriées pour vos fichiers de configuration
