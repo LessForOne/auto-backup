@@ -1,4 +1,3 @@
-# auto-backup
 
 # GitHub Auto Backup
 
