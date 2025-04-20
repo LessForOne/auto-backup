@@ -1,0 +1,4 @@
+github_token: "your_token_here"
+github_user: "your_github_username"
+backup_dir: "backups"
+
