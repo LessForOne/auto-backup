@@ -1,6 +1,3 @@
-Bien sûr ! Voilà ton `README.md` propre, clair et sans emojis, mais toujours bien structuré :
-
----
 
 ```markdown
 # GitHub Auto Backup
